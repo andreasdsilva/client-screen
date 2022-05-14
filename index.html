@@ -19,49 +19,40 @@
         <main>
             <div class="form-block">
                 
-                <!-- <label for="name">Nome</label> -->
                 <input placeholder="Nome" data-user="name" id="name" type="text" />                
             
-                <!-- <label for="email">E-mail</label> -->
                 <input placeholder="E-mail" data-user="email" id="email" type="email" />                
             
-                <!-- <label for="email">Confirmar e-mail</label> -->
                 <input placeholder="Confirmar e-mail" data-user="emailConfirm" id="emailConfirm" type="email" />
-                <span id="email_error_span"></span>
 
-                <!-- <label for="password">Senha</label> -->
                 <input placeholder="Senha" data-user="password" id="password" type="password" />
 
-                <!-- <label for="password">Confirmar Senha</label> -->
                 <input placeholder="Confirmar Senha" data-user="passwordConfirm" id="passwordConfirm" type="password" />
-                <span id="password_error_span"></span>
 
             </div>
             <div class="form-block">
 
-                <!-- <label for="">CEP</label> -->
                 <input placeholder="CEP" onchange="searchPostalCode(this.value);" data-address="postal-code" id="postal-code" type="number" />
 
-                <!-- <label for="">Rua</label> -->
                 <input placeholder="Rua" class="disabled" disabled data-address="address" id="address" type="text" />
 
-                <!-- <label for="">Bairro</label> -->
                 <input placeholder="Bairro" class="disabled" disabled data-address="hood" id="neighborhood" type="text" />
 
-                <!-- <label for="">Cidade</label> -->
                 <input placeholder="Cidade" class="disabled" disabled data-address="city" id="city" type="text" />
 
                 <div style="display: flex; flex-direction: row; justify-content: space-between;">
 
-                    <!-- <label for="">UF</label> -->
                     <input placeholder="UF" class="disabled" disabled style="width: 50%; margin-right: 10px;" data-address="state" id="state" type="text" />
 
-                    <!-- <label for="">N°</label> -->
                     <input placeholder="N°" style="width: 50%;" data-address="number" id="number" type="number" />
 
                 </div>
             </div>
         </main>
+
+        <span class="error" id="email_error_span">E-mails devem ser idênticos!</span>
+        <span class="error" id="password_error_span">Senhas devem ser idênticas!</span>
+
         <button type="submit" id="register">
             <span class="text">Cadastrar</span>
         </button>

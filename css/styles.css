@@ -75,8 +75,18 @@ form .form-block div{
     justify-content: center;
 }
 
+.error {
+    color: red;
+    display: flex;
+    opacity: 0;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
 form .form-block {
     display: flex;
+    gap: 0;
     flex-direction: column;
     justify-content: center;
     width: 100%;
@@ -168,6 +178,10 @@ form button:active {
 }
 
 @media (max-width: 768px) {
+    
+    .error {
+        font-size: 10px;
+    }
 
     img {
         width: 70%;
@@ -178,7 +192,7 @@ form button:active {
     }
 
     .gradient {
-        height: 650px;
+        height: 700px;
         background-repeat: no-repeat;
         width: auto;
     }
@@ -223,10 +237,6 @@ form button:active {
 
     .modal {
         height: auto;
-    }
-
-    form main {
-        height: 300px !important;
     }
 
     .form-block  {
