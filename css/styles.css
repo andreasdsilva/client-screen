@@ -180,7 +180,7 @@ form button:active {
 @media (max-width: 768px) {
     
     .error {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     img {
