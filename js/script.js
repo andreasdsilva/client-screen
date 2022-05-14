@@ -15,6 +15,8 @@ const number = document.querySelector('[data-address="number"]');
 
 const register = document.getElementById('register');
 
+let haveError = false;
+
 function clearPostalCodeForm() {
     postalCode.value=("");
     street.value=("");
@@ -55,7 +57,7 @@ function searchPostalCode(value) {
     }
 };
 
-function verifyClearFields(event) {
+function verifyFields(event) {
     
     const elements = document.querySelectorAll('input');
     let haveEmptyFields = false;
@@ -66,7 +68,7 @@ function verifyClearFields(event) {
         }
     });
     
-    if(haveEmptyFields) {
+    if(haveEmptyFields || haveError) {
         event.preventDefault();
         alert("Todos campos devem ser preenchidos corretamente!")
     }
@@ -77,11 +79,12 @@ function verifyConfirmFields(str, confirmStr, errorElementId) {
     
     if( str !== null && confirmStr !== null ) {
         if( str === confirmStr ) {
-            errorSpan.style.opacity = '1';
+            errorSpan.style.opacity = '0';
         }
 
         if( str !== confirmStr ) {
-            errorSpan.style.opacity = '0';
+            errorSpan.style.opacity = '1';
+            haveError = true;
         }
     }
     else
@@ -90,20 +93,20 @@ function verifyConfirmFields(str, confirmStr, errorElementId) {
     }
 };
 
-register.addEventListener('click', verifyClearFields);
+register.addEventListener('click', verifyFields);
 
-emailConfirm.onkeydown = () => {
+emailConfirm.onchange = () => {
     verifyConfirmFields(email.value, emailConfirm.value, 'email_error_span');
 };
 
-email.onkeydown = () => {
-    verifyConfirmFields(email.value, emailConfirm.value, 'email_error_span');
-};
+// email.onkeydown = () => {
+//     verifyConfirmFields(email.value, emailConfirm.value, 'email_error_span');
+// };
 
-passwordConfirm.onkeydown = () => {
+passwordConfirm.onchange = () => {
     verifyConfirmFields(password.value, passwordConfirm.value, 'password_error_span');
 };
 
-password.onkeydown = () => {
-    verifyConfirmFields(password.value, passwordConfirm.value, 'password_error_span');
-};
+// password.onkeydown = () => {
+//     verifyConfirmFields(password.value, passwordConfirm.value, 'password_error_span');
+// };
