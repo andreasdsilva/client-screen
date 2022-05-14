@@ -13,32 +13,6 @@ const city = document.querySelector('[data-address="city"]');
 const state = document.querySelector('[data-address="state"]');
 const number = document.querySelector('[data-address="number"]');
 
-console.log( email.value );
-
-// const verify = () => {
-//     console.log('ver');
-//     let strBuilder = "";
-//     // console.log(password.value === passwordConfirm.value);
-//     // password === passwordConfirm ? true : strBuilder += "senhas devem ser iguais\n";
-//     // email === emailConfirm ? true : strBuilder += "emails devem ser iguais\n";
-
-//     if(password.value !== "" && passwordConfirm.value !== "" && password.value !== passwordConfirm.value)
-//     {
-//         console.log('a');
-//         strBuilder += "senhas devem ser iguais\n";
-//     }
-
-//     if(email.value === "" && email.value !== emailConfirm.value)
-//     {
-//         console.log('b');
-//         strBuilder += "emails devem ser iguais\n";
-//     }
-
-//     if ( strBuilder !== "" ) {
-//         alert( strBuilder );
-//     }
-// }
-
 function verifyClearFields(event) {
     event.preventDefault();
 
@@ -54,7 +28,7 @@ function verifyClearFields(event) {
     haveEmptyFields ? alert("Todos campos devem ser preenchidos!") : null;
 }
 
-function clearForm() {
+function clearPostalCodeForm() {
     postalCode.value=("");
     street.value=("");
     hood.value=("");
@@ -75,7 +49,7 @@ function callback(conteudo) {
 function searchPostalCode(value) {
     let postalCode = value.replace(/\D/g, '');
 
-    if (postalCode != "") {
+    if (postalCode != null && postalCode != "" ) {
         let validatePostalCode = /^[0-9]{8}$/;
 
         if(validatePostalCode.test(postalCode)) {
@@ -89,34 +63,13 @@ function searchPostalCode(value) {
             alert("CEP Inválido!");
         }
     }
+    else {
+        console.log("else")
+        clearPostalCodeForm();
+        alert("CEP Inválido!");
+    }
 };
 
 const register = document.getElementById('register');
 
 register.addEventListener('click', verifyClearFields);
-// register.addEventListener('click', (event) => {
-//     event.preventDefault();
-    
-//     const email = document.querySelector('[data-user="email"]');
-//     const emailConfirm = document.querySelector('[data-user="emailConfirm]');
-
-//     const password = document.querySelector('[data-user="password"]');
-//     const passwordConfirm = document.querySelector('[data-user="passwordConfirm"]');
-
-//     let str = ""
-
-//     if ( email.value !== "" && emailConfirm.value !== "" && email.value !== emailConfirm.value ) {
-//         str += "emails devem ser iguais\n"
-//     }
-//     if ( password.value !== "" && passwordConfirm.value !== "" && password.value !== passwordConfirm.value ) {
-//         str += "emails devem ser iguais\n"
-//     }
-
-//     if ( str !== "" ) {
-//         alert(str);
-//     }
-
-
-// });
-
-

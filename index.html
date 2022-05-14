@@ -1,77 +1,72 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" >
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Screen</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="gradient">
-        <form onsubmit="" class="modal" data-animate="animation" autocomplete="off">
-            <img src="./imgs/bemol-digital.svg" alt="bemol" class="logo">
-            <main>
-                <div class="form-block">
-                    <div>
-                        <label for="name">Nome</label>
-                        <input data-user="name" id="name" type="text" />
-                    </div>
-                    <div>
-                        <label for="email">E-mail</label>
-                        <input data-user="email" id="email" type="email" />
-                    </div>
-                    <div>
-                        <label for="email">Confirmar e-mail</label>
-                        <input data-user="emailConfirm" id="emailConfirm" type="email" />
-                    </div>
-                    <div>
-                        <label for="password">Senha</label>
-                        <input data-user="password" id="password" type="password" />
-                    </div>
-                    <div>
-                        <label for="password">Confirmar Senha</label>
-                        <input data-user="passwordConfirm" id="passwordConfirm" type="password" />
-                    </div>
+<body class="gradient">
+    <form class="modal" data-animate="animation" autocomplete="off">
+        <div class="logo">
+            <img src="./imgs/bemol-digital.svg" alt="bemol">
+        </div>
+        <main>
+            <div class="form-block">
+                
+                <!-- <label for="name">Nome</label> -->
+                <input placeholder="Nome" data-user="name" id="name" type="text" />                
+            
+                <!-- <label for="email">E-mail</label> -->
+                <input placeholder="E-mail" data-user="email" id="email" type="email" />                
+            
+                <!-- <label for="email">Confirmar e-mail</label> -->
+                <input placeholder="Confirmar e-mail" data-user="emailConfirm" id="emailConfirm" type="email" />
+                <span id="email_error_span"></span>
+
+                <!-- <label for="password">Senha</label> -->
+                <input placeholder="Senha" data-user="password" id="password" type="password" />
+
+                <!-- <label for="password">Confirmar Senha</label> -->
+                <input placeholder="Confirmar Senha" data-user="passwordConfirm" id="passwordConfirm" type="password" />
+                <span id="password_error_span"></span>
+
+            </div>
+            <div class="form-block">
+
+                <!-- <label for="">CEP</label> -->
+                <input placeholder="CEP" onchange="searchPostalCode(this.value);" data-address="postal-code" id="postal-code" type="number" />
+
+                <!-- <label for="">Rua</label> -->
+                <input placeholder="Rua" class="disabled" disabled data-address="address" id="address" type="text" />
+
+                <!-- <label for="">Bairro</label> -->
+                <input placeholder="Bairro" class="disabled" disabled data-address="hood" id="neighborhood" type="text" />
+
+                <!-- <label for="">Cidade</label> -->
+                <input placeholder="Cidade" class="disabled" disabled data-address="city" id="city" type="text" />
+
+                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+
+                    <!-- <label for="">UF</label> -->
+                    <input placeholder="UF" class="disabled" disabled style="width: 50%; margin-right: 10px;" data-address="state" id="state" type="text" />
+
+                    <!-- <label for="">N°</label> -->
+                    <input placeholder="N°" style="width: 50%;" data-address="number" id="number" type="number" />
+
                 </div>
-                <div class="form-block">
-                    <div>
-                        <label for="">CEP</label>
-                        <input onchange="searchPostalCode(this.value);" data-address="postal-code" id="postal-code" type="number" />
-                    </div>
-                    <div>
-                        <label for="">Rua</label>
-                        <input class="disabled" disabled data-address="address" id="address" type="text" />
-                    </div>
-                    <div>
-                        <label for="">Bairro</label>
-                        <input class="disabled" disabled data-address="hood" id="neighborhood" type="text" />
-                    </div>
-                    <div>
-                        <label for="">Cidade</label>
-                        <input class="disabled" disabled data-address="city" id="city" type="text" />
-                    </div>
-                    <div style="display: flex; flex-direction: row;">
-                        <div>
-                            <label for="">Estado</label>
-                            <input class="disabled" disabled style="width: 85%;" data-address="state" id="state" type="text" />
-                        </div>
-                        <div>
-                            <label for="">N°</label>
-                            <input style="width: 95%;" data-address="number" id="number" type="number" />
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <button type="submit" id="register">
-                <span class="text">Cadastrar</span>
-            </button>
-            <a href="/">Ja possui uma conta</a>
-        </form>
-    </div>
+            </div>
+        </main>
+        <button type="submit" id="register">
+            <span class="text">Cadastrar</span>
+        </button>
+        <a href="/">Ja possui uma conta</a>
+    </form>
     <script src="./js/script.js"></script>
 </body>
 </html>
