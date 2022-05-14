@@ -12,55 +12,61 @@
 
 <body>
     <div class="gradient">
-        <form class="modal">
+        <form onsubmit="" class="modal" data-animate="animation" autocomplete="off">
             <img src="./imgs/bemol-digital.svg" alt="bemol" class="logo">
             <main>
                 <div class="form-block">
                     <div>
                         <label for="name">Nome</label>
-                        <input type="text" />
+                        <input data-user="name" id="name" type="text" />
                     </div>
                     <div>
                         <label for="email">E-mail</label>
-                        <input type="text" />
+                        <input data-user="email" id="email" type="email" />
                     </div>
                     <div>
                         <label for="email">Confirmar e-mail</label>
-                        <input type="text" />
+                        <input data-user="emailConfirm" id="emailConfirm" type="email" />
                     </div>
                     <div>
                         <label for="password">Senha</label>
-                        <input type="text" />
+                        <input data-user="password" id="password" type="password" />
                     </div>
                     <div>
                         <label for="password">Confirmar Senha</label>
-                        <input type="text" />
+                        <input data-user="passwordConfirm" id="passwordConfirm" type="password" />
                     </div>
                 </div>
                 <div class="form-block">
                     <div>
                         <label for="">CEP</label>
-                        <input type="text" />
+                        <input onchange="searchPostalCode(this.value);" data-address="postal-code" id="postal-code" type="number" />
                     </div>
                     <div>
-                        <label for="">Endereço</label>
-                        <input type="text" />
+                        <label for="">Rua</label>
+                        <input class="disabled" disabled data-address="address" id="address" type="text" />
                     </div>
                     <div>
                         <label for="">Bairro</label>
-                        <input type="text" />
+                        <input class="disabled" disabled data-address="hood" id="neighborhood" type="text" />
                     </div>
                     <div>
                         <label for="">Cidade</label>
-                        <input type="text" />
+                        <input class="disabled" disabled data-address="city" id="city" type="text" />
                     </div>
-                    <div>
-                        <label for="">Estado</label>
-                        <input type="text" />
+                    <div style="display: flex; flex-direction: row;">
+                        <div>
+                            <label for="">Estado</label>
+                            <input class="disabled" disabled style="width: 85%;" data-address="state" id="state" type="text" />
+                        </div>
+                        <div>
+                            <label for="">N°</label>
+                            <input style="width: 95%;" data-address="number" id="number" type="number" />
+                        </div>
                     </div>
                 </div>
             </main>
-            <button>
+            <button type="submit" id="register">
                 <span class="text">Cadastrar</span>
             </button>
             <a href="/">Ja possui uma conta</a>
